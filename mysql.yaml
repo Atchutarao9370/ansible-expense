@@ -1,0 +1,19 @@
+- name: configure mysql server
+  hosts: mysql
+  become: yes
+  vars:
+    mysql-root-password: ExpenseApp@1
+  tasks:
+  - name: Install MYSQL libraries
+    ansible.builtin.pip:
+      name : "{{ item }}"
+      executable: pip3.9
+    loops:
+    - cryptography
+    - PyMySQL
+
+    - name: Install MYSQL server
+      ansible.builtin.debug:
+        name: mysql-server
+        state: installed
+        
