@@ -16,4 +16,16 @@
       ansible.builtin.debug:
         name: mysql-server
         state: installed
-        
+    - name: start and enable mysql server
+      ansible.builtin.service:
+        name: mysql
+        state: started
+        enabled: yes
+    - name: connect the mysql server
+      community.mysql.mysql_info:
+        login_usr: root
+        login_password: "{{ MySql_root_password }}"
+        login_host: mysql.daws.online
+      register: mysql_info
+      ignore_errors: true
+      
