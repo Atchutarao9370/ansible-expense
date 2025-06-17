@@ -8,23 +8,25 @@
     ansible.builtin.pip:
       name : "{{ item }}"
       executable: pip3.9
-    loops:
+    loop:
     - cryptography
     - PyMySQL
 
-    - name: Install MYSQL server
+    - name: Install MySQL server
       ansible.builtin.debug:
         name: mysql-server
         state: installed
+
     - name: start and enable mysql server
       ansible.builtin.service:
-        name: mysql
+        name: mysqld
         state: started
         enabled: yes
-    - name: connect the mysql server
+
+    - name: connect to mysql server
       community.mysql.mysql_info:
         login_usr: root
-        login_password: "{{ MySql_root_password }}"
+        login_password: "{{ mysql_root_password }}"
         login_host: mysql.daws.online
       register: mysql_info
       ignore_errors: true
