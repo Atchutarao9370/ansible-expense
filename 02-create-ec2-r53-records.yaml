@@ -1,6 +1,6 @@
 - name: create ec2 and r53 records
   hosts: local
-  connections: local
+  connection: local
   vars:
     subnet_id: "subnet-033b7ec5b840f5fc8"
     security_group: "sg-0a07fec735d1155e4"
