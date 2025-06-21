@@ -12,7 +12,7 @@
     ansible.builtin.debug:
       msg: "{{ greeting | upper }}"
 
-  - name: convert to lowercase
+  - name: convert to lower case
     vars:
       greeting: "Hello World"
     ansible.builtin.debug:
@@ -30,3 +30,11 @@
     ansible.builtin.debug:
       msg: "Min: {{ numbers | min }} , Max: {{ numbers | max}}"
 
+  - name: convert map to list
+    vars:
+      courese:
+        course name: "Devops with AWS"
+        duration: "120hrs"
+        trainer: " Sivakumar Reddy"
+    ansible.builtin.debug:
+      msg: "{{ course | dict2items }}"
