@@ -54,5 +54,3 @@
     ansible.builtin.debug:
       msg: "{{ myip | ansible.utils.ipv4 }}"
 
-
-
