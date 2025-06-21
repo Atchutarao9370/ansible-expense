@@ -32,7 +32,7 @@
 
   - name: convert map to list
     vars:
-      courese:
+      course:
         course name: "Devops with AWS"
         duration: "120hrs"
         trainer: " Sivakumar Reddy"
